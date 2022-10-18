@@ -11,9 +11,9 @@ srv=service.Open('gmail',apiscope,jsonsecfile,tokenpickle)
 
 
 msg = MIMEMultipart()
-msg['From'] = 'awangga@ulbi.ac.id'
+msg['From'] = 'Rolly Maulana Awangga <awangga@ulbi.ac.id>'
 msg['To'] = 'rolly@awang.ga'
-msg['Subject'] = 'testing'
+msg['Subject'] = 'my info'
 
 # Create the plain-text and HTML version of your message
 text = """\
