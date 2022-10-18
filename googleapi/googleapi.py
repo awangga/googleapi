@@ -38,8 +38,8 @@ def getApiVersion(servicename):
         apiversion = 'v4'
     return apiversion
 
-def jsonBloggerPost(bloggerID,title,content):
-    json = {
+def bodyBloggerPost(bloggerID,title,content):
+    body = {
               "kind": "blogger#post",
               "blog": {
                 "id": bloggerID
@@ -47,37 +47,37 @@ def jsonBloggerPost(bloggerID,title,content):
               "title": title,
               "content": content
     }
-    return json
+    return body
 
-def jsonDocs(title,description):
-    json = {
+def bodyDocs(title,description):
+    body = {
         'name': title,
         'description': description
     }
-    return json
+    return body
 
-def jsonDocsReplace(key,value):
+def bodyDocsReplace(key,value):
     """
     Replace {{key}} with value
     """
-    json = {'replaceAllText': {
+    body = {'replaceAllText': {
                 'containsText': {
                     'text': '{{' + key + '}}',
                     'matchCase':  True
                 },
                 'replaceText': value,
             }}
-    return json
+    return body
 
-def jsonGmailSend(msg):
+def bodyGmailSend(msg):
     encoded_message = base64.urlsafe_b64encode(msg.as_bytes()).decode()
-    json = {
+    body = {
         'raw': encoded_message
     }
-    return json
+    return body
 
-def jsonSheetUpdate(cell,values):
-    json = {
+def bodySheetUpdate(cell,values):
+    body = {
         "valueInputOption": "RAW",
         "data": [
             {
@@ -86,9 +86,9 @@ def jsonSheetUpdate(cell,values):
             },
         ]
     }
-    return json
+    return body
 
-def executeBloggerPost(service,bloggerID,json):
+def executeBloggerPost(service,bloggerID,body):
     srv = blogger.posts()
-    reply = srv.insert(blogId=bloggerID, body=json).execute()
+    reply = srv.insert(blogId=bloggerID, body=body).execute()
     return reply
