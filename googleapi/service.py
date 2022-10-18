@@ -24,6 +24,10 @@ def Credentials(apiscope,jsonsecfile,tokenpickle):
 
 def Service(servicename,credentials):
     return build(servicename, getApiVersion(servicename), credentials=credentials)
+    
+def Open(servicename,apiscope,jsonsecfile,tokenpickle):
+    credentials=Credentials(apiscope,jsonsecfile,tokenpickle)
+    return build(servicename, getApiVersion(servicename), credentials=credentials)
 
 def getApiVersion(servicename):
     if servicename == 'gmail' or servicename == 'docs':

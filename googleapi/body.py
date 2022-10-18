@@ -1,4 +1,4 @@
-def bodyBloggerPost(bloggerID,title,content):
+def BloggerPost(bloggerID,title,content):
     body = {
               "kind": "blogger#post",
               "blog": {
@@ -9,14 +9,14 @@ def bodyBloggerPost(bloggerID,title,content):
     }
     return body
 
-def bodyDocs(title,description):
+def Docs(title,description):
     body = {
         'name': title,
         'description': description
     }
     return body
 
-def bodyDocsReplace(key,value):
+def DocsReplace(key,value):
     """
     Replace {{key}} with value
     """
@@ -29,7 +29,7 @@ def bodyDocsReplace(key,value):
             }}
     return body
 
-def bodyGmailSend(msg):
+def GmailSend(msg):
     import base64
     encoded_message = base64.urlsafe_b64encode(msg.as_bytes()).decode()
     body = {
@@ -37,7 +37,7 @@ def bodyGmailSend(msg):
     }
     return body
 
-def bodySheetUpdate(cell,values):
+def SheetUpdate(cell,values):
     body = {
         "valueInputOption": "RAW",
         "data": [

@@ -4,5 +4,6 @@ apiscope=['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapi
 jsonsecfile='my_json_file.json'
 tokenpickle='token.pickle'
 
-creds=service.Credentials(apiscope,jsonsecfile,tokenpickle)
-srv=service.Service('gmail',creds)
+srv=service.Open('gmail',apiscope,jsonsecfile,tokenpickle)
+
+
