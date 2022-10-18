@@ -88,4 +88,7 @@ def jsonSheetUpdate(cell,values):
     }
     return json
 
-def execute
+def executeBloggerPost(service,bloggerID,json):
+    srv = blogger.posts()
+    reply = srv.insert(blogId=bloggerID, body=json).execute()
+    return reply
