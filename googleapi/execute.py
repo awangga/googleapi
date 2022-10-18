@@ -12,4 +12,4 @@ def DriveCopy(service,fileId,body):
 
 def GmailSend(service,body):
     srv = service.users().messages()
-    return srv.send(userId="me", body=create_message).execute()
+    return srv.send(userId="me", body=body).execute()
