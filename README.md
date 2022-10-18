@@ -1,8 +1,8 @@
 # googleapi
 Google API Wrapper for Python
-flow : open-body-execute
+flow : service-body-execute
 
-## Open
+## Service
 Open google api service with credentials
 
 ## Body
