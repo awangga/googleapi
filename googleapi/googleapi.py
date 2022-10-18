@@ -88,7 +88,21 @@ def bodySheetUpdate(cell,values):
     }
     return body
 
-def executeBloggerPost(service,bloggerID,body):
-    srv = blogger.posts()
-    reply = srv.insert(blogId=bloggerID, body=body).execute()
-    return reply
+def execBloggerInsert(service,bloggerID,body):
+    srv = service.posts()
+    return srv.insert(blogId=bloggerID, body=body).execute()
+
+def execDocsGet(service,documentId):
+    srv = service.documents()
+    return srv.get(documentId=documentId).execute()
+
+def execDriveCopy(service,fileId,body):
+    srv = service.files()
+    return srv.copy(fileId=fileId, body=body).execute()
+
+def execGmailSend(service,body):
+    srv = service.users().messages()
+    return srv.send(userId="me", body=create_message).execute()
+
+def getInfo(response,field)
+    return response.get(field)
