@@ -1,7 +1,9 @@
 # googleapi
 Google API Wrapper for Python, please download client_secret_file.json from Credentials in APIs & Services Menu in Your Google Cloud Console Project.
-![Credentials in APIs & Services Menu](/creds.jpg "Credentials Json Location").
-please remind this flow : service -> body -> execute
+![Credentials in APIs & Services Menu](/creds.jpg "Credentials Json Location")
+
+# The flow
+service -> body -> execute
 
 ## Service
 Open google api service with credentials
