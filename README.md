@@ -6,7 +6,7 @@ Google API Wrapper for Python. To access Google API, please download client_secr
 service + body = execute
 
 ## Service
-Open google api service with credentials
+Open google api service with json credentials file and token.pickle, please run in localhost first to generate token.pickle with user confirmation. after that you may put token.pickle in your server.
 
 ## Body
 Generate json or dictionary for data post to Google API
