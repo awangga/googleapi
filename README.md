@@ -1,6 +1,7 @@
 # googleapi
-Google API Wrapper for Python
-flow : service-body-execute
+Google API Wrapper for Python, please download client_secret_file.json from Credentials in APIs & Services Menu in Your Google Cloud Console Project.
+![Credentials in APIs & Services Menu](/creds.jpg "Credentials Json Location").
+please remind this flow : service -> body -> execute
 
 ## Service
 Open google api service with credentials
@@ -18,19 +19,21 @@ from googleapi import service,body,execute
 from helper import email
 
 apiscope=['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/documents', 'https://www.googleapis.com/auth/drive','https://www.googleapis.com/auth/blogger','https://www.googleapis.com/auth/gmail.send','https://www.googleapis.com/auth/gmail.readonly']
-jsonsecfile='my_json_file.json'
+jsonsecfile='client_secret_file.json'
 tokenpickle='token.pickle'
 ```
 
 ### Sending email
+First we create Mime Text Email with helper library : 
+```python
+msg=email.createMessage('Rolly Maulana Awangga <awangga@ulbi.ac.id>','rolly@awang.ga','my info',"hello gaes","plain")
+```
+After that just passing the argument with the variabel above with flow : service -> body -> execute
 ```python
 srv=service.Open('gmail',apiscope,jsonsecfile,tokenpickle)
 
-msg=email.createMessage('Rolly Maulana Awangga <awangga@ulbi.ac.id>','rolly@awang.ga','my info',"hello gaes","plain")
-
 json=body.GmailSend(msg)
-print(json)
 
 resp=execute.GmailSend(srv,json)
-print(resp)
 ```
+Thats all. If u want to catch response from google API just use resp (json format).
